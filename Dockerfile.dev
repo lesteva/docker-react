@@ -1,0 +1,15 @@
+FROM node:12-buster
+
+WORKDIR '/app'
+
+
+COPY package.json .
+
+RUN npm install
+
+##It is not useful since we use -v to make a reference to the local resources
+### (It has to be added again because it didn't run test)
+COPY . .
+
+CMD ["npm", "run", "start"]
+
